@@ -1,14 +1,16 @@
 package com.example.dialog
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.DatePicker
 import android.widget.Toast
 import com.example.dialog.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding : ActivityMainBinding
     private val province = arrayOf(
@@ -48,19 +50,32 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-//            datePicker.init(
-//                datePicker.year,
-//                datePicker.month,
-//                datePicker.dayOfMonth
-//            ) {_,year, monthOfYear, dayOfMonth ->
-//                val selectedDate = "$dayOfMonth/${monthOfYear + 1}/$year"
-//                Toast.makeText(this@MainActivity, selectedDate, Toast.LENGTH_SHORT).show()
-//            }
+            datePicker.init(
+                datePicker.year,
+                datePicker.month,
+                datePicker.dayOfMonth
+            ) {_,year, monthOfYear, dayOfMonth ->
+                val selectedDate = "$dayOfMonth/${monthOfYear + 1}/$year"
+                Toast.makeText(this@MainActivity, selectedDate, Toast.LENGTH_SHORT).show()
+            }
 
             timePicker.setOnTimeChangedListener{view, hourOfDay, minute ->
                 var selectedTime = String.format("%02d:%02d", hourOfDay, minute)
                 Toast.makeText(this@MainActivity, selectedTime, Toast.LENGTH_SHORT).show()
             }
+
+
+            btnShowCalendar.setOnClickListener {
+                val datePickerFragment = DatePickerFragment()
+                datePickerFragment.show(supportFragmentManager, "datePicker")
+
+
+            }
         }
+    }
+
+    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+        val selectedDate = "$p3/${p2+1}/$p1"
+        Toast.makeText(this@MainActivity, selectedDate, Toast.LENGTH_SHORT).show()
     }
 }
