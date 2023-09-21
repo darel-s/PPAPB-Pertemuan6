@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
     android:padding="32dp">
 
     <Spinner
+        android:id="@+id/spinner_province"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner_province"
+        android:layout_marginBottom="16dp"
+        android:hint="Pilih Provinsi"
         />
 
     <Spinner
+        android:id="@+id/spinner_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner_country"
+        android:hint="Pilih Negara"
         />
-
 
 </LinearLayout>

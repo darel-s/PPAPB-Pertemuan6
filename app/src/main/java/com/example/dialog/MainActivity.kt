@@ -13,17 +13,15 @@ class MainActivity : AppCompatActivity() {
         "Daerah Istimewa Yogyakarta",
         "Bali",
     )
-    private val country = arrayOf(
-        "Indonesia",
-        "Singapore",
-        "Australia"
-    )
+    private lateinit var country : Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
+        country = resources.getStringArray(R.array.country)
+
         with(binding) {
             val adapterProvince = ArrayAdapter (this@MainActivity, android.R.layout.simple_spinner_item, province)
             adapterProvince.setDropDownViewResource(

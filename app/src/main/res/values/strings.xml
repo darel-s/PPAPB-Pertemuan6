@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dialog</string>
+    <array name="country">
+        <item>Indonesia</item>
+        <item>Australia</item>
+        <item>Singapore</item>
+    </array>
 </resources>
