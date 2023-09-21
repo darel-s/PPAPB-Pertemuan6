@@ -7,6 +7,14 @@
     android:orientation="vertical"
     android:padding="32dp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Provinsi"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
     <Spinner
         android:id="@+id/spinner_province"
         android:layout_width="match_parent"
@@ -15,11 +23,54 @@
         android:hint="Pilih Provinsi"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Negara"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
     <Spinner
         android:id="@+id/spinner_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Pilih Negara"
+        android:layout_marginBottom="16dp"
         />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Pilih Tanggal"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginBottom="8dp"/>-->
+
+<!--    <DatePicker-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/date_picker"-->
+<!--        android:calendarViewShown="false"-->
+<!--        android:datePickerMode="calendar"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Waktu"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        android:id="@+id/time_picker"
+        />
+
 
 </LinearLayout>
