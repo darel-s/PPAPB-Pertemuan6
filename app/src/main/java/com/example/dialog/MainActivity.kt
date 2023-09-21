@@ -1,16 +1,18 @@
 package com.example.dialog
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import com.example.dialog.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
+class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private lateinit var binding : ActivityMainBinding
     private val province = arrayOf(
@@ -68,9 +70,13 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             btnShowCalendar.setOnClickListener {
                 val datePickerFragment = DatePickerFragment()
                 datePickerFragment.show(supportFragmentManager, "datePicker")
-
-
             }
+
+            btnShowTimePicker.setOnClickListener {
+                val timePicker = TimePicker()
+                timePicker.show(supportFragmentManager, "timePicker")
+            }
+
         }
     }
 
@@ -78,4 +84,10 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         val selectedDate = "$p3/${p2+1}/$p1"
         Toast.makeText(this@MainActivity, selectedDate, Toast.LENGTH_SHORT).show()
     }
+
+    override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
+        val selectedTime = String.format("%02d:%02d", p1, p2)
+        Toast.makeText(this@MainActivity, selectedTime, Toast.LENGTH_SHORT).show()
+    }
+
 }
